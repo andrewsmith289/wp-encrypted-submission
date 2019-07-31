@@ -1,0 +1,15 @@
+# Encrypted user documents rewrite
+RewriteEngine on
+RewriteRule ^/?wp-content/uploads/ultimatemember/(.*)$ /var/www/html/s5.php?/$1 [R=301,L]
+# END encryption rewrite
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
